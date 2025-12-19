@@ -34,7 +34,7 @@ jobs:
           context: .
           push: true
           tags: chatgptinternalcontainerregistry.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_073A5A0EF95349F9BE6124380C61EBA0 }}/picturewebapp:${{ github.sha }}
-          file: ./Dockerfile
+          file: ./WebApp.Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,4 +50,5 @@ jobs:
           app-name: 'digitale-bauakte-webapp'
           slot-name: 'Production'
           images: 'chatgptinternalcontainerregistry.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_073A5A0EF95349F9BE6124380C61EBA0 }}/picturewebapp:${{ github.sha }}'
+
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6E791B0A2B654AABA2E9BBC9665D4C2F }}
